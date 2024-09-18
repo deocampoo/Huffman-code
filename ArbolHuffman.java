@@ -4,13 +4,13 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class ArbolHuffman {
-
+      
       public static PriorityQueue<Nodo> rellenarHeap(ArrayList<Nodo> frecuencias) {
         PriorityQueue<Nodo> heap = new PriorityQueue<>();
         heap.addAll(frecuencias);
         return heap; //1,2,4,7
     }
-
+      // O(n)
     public static int altura(Nodo raiz) {
         if (raiz == null) {
             return 0;
@@ -89,16 +89,18 @@ public class ArbolHuffman {
 
         return maxAncho;
     }
-
+      // O(n log n)
     public static Nodo ConstruirArbol(PriorityQueue<Nodo> heap) {
-        while (heap.size() > 1) {
+      //while O(n)  
+      while (heap.size() > 1) {
+            //poll() O(logn)
             Nodo izquierdo = heap.poll();
             Nodo derecho = heap.poll();
 
             Nodo NodoNuevo = new Nodo(izquierdo.frecuencia + derecho.frecuencia, "*");
             NodoNuevo.izquierdo = izquierdo;
             NodoNuevo.derecho = derecho;
-
+            //add() O(log n)
             heap.add(NodoNuevo);
         }
 
