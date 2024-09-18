@@ -69,7 +69,8 @@ public class ArbolHuffman {
             espaciosIniciales /= 2;
         }
     }
-
+    
+    //O(N)
     public static int calcularMaxAnchoNodo(Nodo raiz) {
         if (raiz == null) return 0;
 
@@ -89,7 +90,7 @@ public class ArbolHuffman {
 
         return maxAncho;
     }
-      // O(n log n)
+      // O(n) ---> me quedo con el costo mas alto, es decir O(N)
     public static Nodo ConstruirArbol(PriorityQueue<Nodo> heap) {
       //while O(n)  
       while (heap.size() > 1) {
